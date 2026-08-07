@@ -1,0 +1,163 @@
+/* WheelConnect Custom Design System */
+:root {
+  --font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg-dark: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.85);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --primary-accent: #6366f1;
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.gradient-btn {
+  background: var(--primary-gradient);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.gradient-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  color: #fff;
+}
+
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-PENDING { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #f59e0b; }
+.status-MECHANIC_ASSIGNED { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
+.status-IN_PROGRESS { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid #a855f7; }
+.status-COMPLETED { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
+
+.tab-badge {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.map-container {
+  width: 100%;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.extra-small {
+  font-size: 0.75rem;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Leaflet / OpenStreetMap - custom marker icons and popup theming        */
+/* ---------------------------------------------------------------------- */
+
+.wc-map-pin-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.wc-map-pin {
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+  transition: transform 0.15s ease;
+}
+
+.wc-map-pin-active {
+  animation: wc-pin-bounce 0.6s ease infinite alternate;
+}
+
+@keyframes wc-pin-bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
+}
+
+.wc-user-location-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.wc-user-location-dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wc-user-location-dot-core {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0d6efd;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.wc-user-location-dot-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(13, 110, 253, 0.5);
+  animation: wc-pulse 1.8s ease-out infinite;
+}
+
+@keyframes wc-pulse {
+  0% { transform: scale(0.5); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.wc-map-popup .leaflet-popup-content-wrapper {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.wc-map-popup .leaflet-popup-tip {
+  background: #1e293b;
+}
+
+.wc-map-popup a {
+  color: #60a5fa;
+}
+
+.leaflet-container {
+  background: #0f172a;
+  font-family: inherit;
+}
